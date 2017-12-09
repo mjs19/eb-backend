@@ -31,7 +31,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     // post file to imgur to generate url
     request({
-        url: 'https://api.imgur.com/3/image', 
+        url: 'https://api.imgur.com/3/image',
         method: 'POST',
         json: true,
         headers: {
@@ -63,8 +63,8 @@ router.post('/', (req, res) => {
                 })
                 .then(newImage => {
                     res.json({
-                        'message': 'image created!!', 
-                        'image': newImage 
+                        'message': 'image created!!',
+                        'image': newImage
                     });
                 });
             })
