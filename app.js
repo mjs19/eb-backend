@@ -30,8 +30,6 @@ app.use('/users', users);
 // app.use('/images', images);
 app.use('/gifs', gifs);
 
-var server = app.listen(process.env.PORT || 8080, function() {
-  console.log('Server started on port 8080');
-});
+
 
 module.exports = app;
