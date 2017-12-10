@@ -20,50 +20,50 @@ router.get('/angry', (req, res) => {
     })
 });
 
-// router.get('/happy', (req, res) => {
-//     db.gif.find({
-//         where: { emotion: 'happy' }
-//     })
-//     .then(all => {
-//         res.json(all);
-//     })
-// });
-//
-// router.get('/neutral', (req, res) => {
-//     db.gif.find({
-//         where: { emotion: 'neutral' }
-//     })
-//     .then(all => {
-//         res.json(all);
-//     })
-// });
-//
-// router.get('/surprised', (req, res) => {
-//     db.gif.find({
-//         where: { emotion: 'surprised' }
-//     })
-//     .then(all => {
-//         res.json(all);
-//     })
-// });
-//
-// router.get('/fearful', (req, res) => {
-//     db.gif.find({
-//         where: { emotion: 'fearful' }
-//     })
-//     .then(all => {
-//         res.json(all);
-//     })
-// });
-//
-// router.get('/sad', (req, res) => {
-//     db.gif.find({
-//         where: { emotion: 'sad' }
-//     })
-//     .then(all => {
-//         res.json(all);
-//     })
-// });
+router.get('/happy', (req, res) => {
+    db.gif.find({
+        where: { emotion: 'happy' }
+    })
+    .then(all => {
+        res.json(all);
+    })
+});
+
+router.get('/neutral', (req, res) => {
+    db.gif.find({
+        where: { emotion: 'neutral' }
+    })
+    .then(all => {
+        res.json(all);
+    })
+});
+
+router.get('/surprised', (req, res) => {
+    db.gif.find({
+        where: { emotion: 'surprised' }
+    })
+    .then(all => {
+        res.json(all);
+    })
+});
+
+router.get('/fearful', (req, res) => {
+    db.gif.find({
+        where: { emotion: 'fearful' }
+    })
+    .then(all => {
+        res.json(all);
+    })
+});
+
+router.get('/sad', (req, res) => {
+    db.gif.find({
+        where: { emotion: 'sad' }
+    })
+    .then(all => {
+        res.json(all);
+    })
+});
 //
 // /* POST new gif (we might not need/use it tho) */
 // router.post('/', (req, res) => {
