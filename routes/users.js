@@ -67,10 +67,10 @@ router.get('/', (req, res) => {
   })
 
   /* Update user */
-  router.put('/', (req, res) => {
+  router.put('/:id', (req, res) => {
     db.user.find({
       where: {
-        id: req.body.id
+        id: req.params.id
       }
     })
     .then((user) => {
