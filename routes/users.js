@@ -1,26 +1,26 @@
-// var express = require('express');
-// var router = express.Router();
-// const db = require('../models');
-//
-// /* GET all users */
-// router.get('/', (req, res) => {
-//   db.user.findAll({
-//     include: [{
-//       model: db.image
-//     }],
-//     attributes: {
-//       exclude: ['password'],
-//     }
-//   })
-//   .then((users) => {
-//     res.status(200).json(users);
-//   })
-//   .catch(function(err) {
-//     res.json(err);
-//   });
-//
-// });
-//
+var express = require('express');
+var router = express.Router();
+const db = require('../models');
+
+/* GET all users */
+router.get('/', (req, res) => {
+  db.user.findAll({
+    include: [{
+      model: db.image
+    }],
+    attributes: {
+      exclude: ['password'],
+    }
+  })
+  .then((users) => {
+    res.status(200).json(users);
+  })
+  .catch(function(err) {
+    res.json(err);
+  });
+
+});
+
 // /* GET user by ID */
 // router.get('/:id', (req, res) => {
 //   db.user.find({
@@ -104,6 +104,6 @@
 //     res.json(err)
 //   })
 // })
-//
-//
-// module.exports = router;
+
+
+module.exports = router;
