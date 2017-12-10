@@ -22,21 +22,25 @@ router.get('/', (req, res) => {
   });
 
 });
-//
-// /* GET user by ID */
-// router.get('/:id', (req, res) => {
-//   db.user.find({
-//     where: { id: req.params.id },
-//     attributes: {
-//       exclude: ['password'],
-//     }
-//   })
-//   .then((users) => {
-//     res.status(200).json(users);
-//   })
-//   .catch(function(err) {
-//     res.json(err);
-//   });
+
+/* GET user by ID */
+router.get('/*', (req, res) => {
+  db.user.find({
+    where: { id: req.path.replace(/[^-a-z0-9]+/g, "") },
+    attributes: {
+      exclude: ['password'],
+    }
+  })
+  .then((user) => {
+    if(user) {
+      res.status(200).json(user);
+    } else {
+      res.json({"message": "no user found!"});
+    }
+  })
+  .catch(function(err) {
+    res.json(err);
+  });
 
 //
   /* Create new user */

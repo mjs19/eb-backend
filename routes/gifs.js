@@ -13,63 +13,24 @@ router.get('/', (req, res) => {
     })
 });
 
+// get by emotion
 router.get('/*', (req, res) => {
     db.gif.find({
       // remove forward slash from url path
         where: { emotion: req.path.replace(/[^-a-z0-9]+/g, "") }
     })
     .then(all => {
+      if(all) {
         res.json(all);
+      } else {
+        res.json({"message": "no GIFS found!"})
+      }
     })
     .catch(err => {
       res.json(err);
     })
 });
 
-// router.get('/happy', (req, res) => {
-//     db.gif.find({
-//         where: { emotion: 'happy' }
-//     })
-//     .then(all => {
-//         res.json(all);
-//     })
-// });
-//
-// router.get('/neutral', (req, res) => {
-//     db.gif.find({
-//         where: { emotion: 'neutral' }
-//     })
-//     .then(all => {
-//         res.json(all);
-//     })
-// });
-//
-// router.get('/surprised', (req, res) => {
-//     db.gif.find({
-//         where: { emotion: 'surprised' }
-//     })
-//     .then(all => {
-//         res.json(all);
-//     })
-// });
-//
-// router.get('/fearful', (req, res) => {
-//     db.gif.find({
-//         where: { emotion: 'fearful' }
-//     })
-//     .then(all => {
-//         res.json(all);
-//     })
-// });
-//
-// router.get('/sad', (req, res) => {
-//     db.gif.find({
-//         where: { emotion: 'sad' }
-//     })
-//     .then(all => {
-//         res.json(all);
-//     })
-// });
 
 /* POST new gif (we might not need/use it tho) */
 router.post('/', (req, res) => {
