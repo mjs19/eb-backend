@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/angry', (req, res) => {
+    console.log("req params object: ", req.params);
     db.gif.find({
         where: { emotion: 'angry' }
     })
