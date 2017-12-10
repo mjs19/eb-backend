@@ -14,16 +14,16 @@ module.exports = {
     */
     return queryInterface.bulkInsert('users', [
       {
-        first_name: "Marita",
-        last_name: "Sailor ",
+        firstName: "Marita",
+        lastName: "Sailor ",
         email: "marita.sailor@capitalone.com",
         password: "test",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        first_name: "Sahana",
-        last_name: "Arya ",
+        firstName: "Sahana",
+        lastName: "Arya ",
         email: "sahana.arya@capitalone.com",
         password: "test",
         createdAt: new Date(),
@@ -42,6 +42,6 @@ module.exports = {
     */
 
     return queryInterface.bulkDelete('users', null, {});
-    
+
   }
 };
