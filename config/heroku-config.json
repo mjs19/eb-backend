@@ -1,0 +1,26 @@
+{
+  "development": {
+    "dialect": "postgres",
+    "username": "ffjnekhzqgswnu",
+    "password": "44cc2c7c2fb63be38f53bb88eac7e6806de138feaa98dc49ac6ec088a411350c",
+    "database": "ddjvki02k02nmn",
+    "host": "ec2-174-129-239-0.compute-1.amazonaws.com",
+    "port": "5432"
+  },
+  "test": {
+    "dialect": "postgres",
+    "username": "ffjnekhzqgswnu",
+    "password": "44cc2c7c2fb63be38f53bb88eac7e6806de138feaa98dc49ac6ec088a411350c",
+    "database": "ddjvki02k02nmn",
+    "host": "ec2-174-129-239-0.compute-1.amazonaws.com",
+    "port": "5432"
+  },
+  "production": {
+    "dialect": "postgres",
+    "username": "ffjnekhzqgswnu",
+    "password": "44cc2c7c2fb63be38f53bb88eac7e6806de138feaa98dc49ac6ec088a411350c",
+    "database": "ddjvki02k02nmn",
+    "host": "ec2-174-129-239-0.compute-1.amazonaws.com",
+    "port": "5432"
+  }
+}
