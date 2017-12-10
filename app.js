@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 // var login = require('./routes/login');
-// var images = require('./routes/images');
+var images = require('./routes/images');
 var gifs = require('./routes/gifs');
 var app = express();
 
