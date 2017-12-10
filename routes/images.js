@@ -1,21 +1,21 @@
-// var express = require('express');
-// var router = express.Router();
-// const db = require('../models');
-// var request = require('request');
-// var indico = require('indico.io');
-// indico.apiKey =  '7a00385289015143942a0b624681cd19';
-// const clientId = '8945a218b217c4f';
-// // const clientSecret = '1f67214be6fde71891ee7ce43c89ee7f55fd411a';
-//
-// /* GET all images */
-// router.get('/', (req, res) => {
-//     db.image.findAll()
-//     .then((images) => {
-//         res.json(images)
-//     })
-//     .catch(err => res.json(err));
-// });
-//
+var express = require('express');
+var router = express.Router();
+const db = require('../models');
+var request = require('request');
+var indico = require('indico.io');
+indico.apiKey =  '7a00385289015143942a0b624681cd19';
+const clientId = '8945a218b217c4f';
+// const clientSecret = '1f67214be6fde71891ee7ce43c89ee7f55fd411a';
+
+/* GET all images */
+router.get('/', (req, res) => {
+    db.image.findAll()
+    .then((images) => {
+        res.json(images)
+    })
+    .catch(err => res.json(err));
+});
+
 // /* GET image by ID */
 // router.get('/:id', (req, res) => {
 //     db.image.find({
@@ -89,4 +89,4 @@
 //   });
 //
 //
-// module.exports = router;
+module.exports = router;

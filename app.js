@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 // app.use('/login', login);
-// app.use('/images', images);
+app.use('/images', images);
 app.use('/gifs', gifs);
 
 
