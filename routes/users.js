@@ -90,20 +90,20 @@ router.get('/', (req, res) => {
 //   })
 // });
 //
-// /* Delete user */
-// router.delete('/:id', (req, res) => {
-//   db.user.destroy({
-//     where: {
-//       id: req.params.id
-//     }
-//   })
-//   .then((userDestroyed) => {
-//     res.status(200).json({'message': 'user destroyed', 'user': req.params.id})
-//   })
-//   .catch(err => {
-//     res.json(err)
-//   })
-// })
+/* Delete user */
+router.delete('/:id', (req, res) => {
+  db.user.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then((userDestroyed) => {
+    res.status(200).json({'message': 'user destroyed', 'user': req.params.id})
+  })
+  .catch(err => {
+    res.json(err)
+  })
+})
 
 
 module.exports = router;
