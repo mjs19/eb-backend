@@ -25,8 +25,9 @@ router.get('/', (req, res) => {
 
 /* GET user by ID */
 router.get('/*', (req, res) => {
+  console.log('from users.js, this is req: ', req);
+
   db.user.find({
-    console.log('from users.js, this is req: ', req);
     where: { id: 1 },
     attributes: {
       exclude: ['password'],
