@@ -5,8 +5,9 @@ module.exports = (sequelize, DataTypes) => {
     last_name: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    underscored: true
-  });
+  },
+  underscored: true
+);
 
   user.associate = function(models) {
     user.belongsToMany(models.image, {through: 'userImages'})
