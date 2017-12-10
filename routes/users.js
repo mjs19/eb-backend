@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const db = require('../models');
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 /* GET all users */
 router.get('/', (req, res) => {
