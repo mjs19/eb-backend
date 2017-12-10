@@ -11,15 +11,15 @@ router.get('/', (req, res) => {
     })
 });
 
-// router.get('/angry', (req, res) => {
-//     db.gif.find({
-//         where: { emotion: 'angry' }
-//     })
-//     .then(all => {
-//         res.json(all);
-//     })
-// });
-//
+router.get('/angry', (req, res) => {
+    db.gif.find({
+        where: { emotion: 'angry' }
+    })
+    .then(all => {
+        res.json(all);
+    })
+});
+
 // router.get('/happy', (req, res) => {
 //     db.gif.find({
 //         where: { emotion: 'happy' }
