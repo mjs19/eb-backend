@@ -3,7 +3,7 @@
 // const db = require('../models');
 //
 // router.post('/', (req, res) => {
-//     db.user.findOne({
+//     db.user.find({
 //         where: {
 //             email: req.body.email
 //         }

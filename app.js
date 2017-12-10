@@ -28,7 +28,7 @@ app.use('/', index);
 app.use('/users', users);
 // app.use('/login', login);
 // app.use('/images', images);
-// app.use('/gifs', gifs);
+app.use('/gifs', gifs);
 
 
 module.exports = app;

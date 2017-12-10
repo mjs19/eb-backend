@@ -1,16 +1,16 @@
-// var express = require('express');
-// var router = express.Router();
-// const db = require('../models');
-// const apiKey = 'f6dNA2KM5qhAQC5jg1yxOgkNx0UMCvYT';
-//
-// /* GET routes for all gifs & by emotion */
-// router.get('/', (req, res) => {
-//     db.gif.findAll()
-//     .then(all => {
-//         res.json(all);
-//     })
-// });
-//
+var express = require('express');
+var router = express.Router();
+const db = require('../models');
+const apiKey = 'f6dNA2KM5qhAQC5jg1yxOgkNx0UMCvYT';
+
+/* GET routes for all gifs & by emotion */
+router.get('/', (req, res) => {
+    db.gif.findAll()
+    .then(all => {
+        res.json(all);
+    })
+});
+
 // router.get('/angry', (req, res) => {
 //     db.gif.find({
 //         where: { emotion: 'angry' }
@@ -77,4 +77,4 @@
 //
 //
 //
-// module.exports = router;
+module.exports = router;
