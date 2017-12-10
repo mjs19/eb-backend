@@ -64,17 +64,17 @@ router.get('/sad', (req, res) => {
         res.json(all);
     })
 });
-//
-// /* POST new gif (we might not need/use it tho) */
-// router.post('/', (req, res) => {
-//     db.gif.create({
-//         emotion: req.body.emotion,
-//         url: req.body.url,
-//         createdAt: new Date(),
-//         updatedAt: new Date()
-//     })
-// })
-//
-//
-//
+
+/* POST new gif (we might not need/use it tho) */
+router.post('/', (req, res) => {
+    db.gif.create({
+        emotion: req.body.emotion,
+        url: req.body.url,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    })
+})
+
+
+
 module.exports = router;
