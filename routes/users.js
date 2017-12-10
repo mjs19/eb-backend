@@ -65,30 +65,30 @@ router.get('/', (req, res) => {
       res.json(err);
     })
   })
-//
-//   /* Update user */
-//   router.put('/', (req, res) => {
-//     db.user.find({
-//       where: {
-//         id: req.body.id
-//       }
-//     })
-//     .then((user) => {
-//       user.update({
-//         first_name: req.body.first,
-//         last_name: req.body.last,
-//         password: req.body.password,
-//         updatedAt: new Date()
-//       })
-//       .then((updatedUser) => {
-//         res.status(200).json({ 'message': 'user updated!', 'user': updatedUser })
-//       })
-//     })
-//     .catch(err => {
-//       res.json(err);
-//     })
-//   })
-// });
+
+  /* Update user */
+  router.put('/', (req, res) => {
+    db.user.find({
+      where: {
+        id: req.body.id
+      }
+    })
+    .then((user) => {
+      user.update({
+        first_name: req.body.first,
+        last_name: req.body.last,
+        password: req.body.password,
+        updatedAt: new Date()
+      })
+      .then((updatedUser) => {
+        res.status(200).json({ 'message': 'user updated!', 'user': updatedUser })
+      })
+    })
+    .catch(err => {
+      res.json(err);
+    })
+  })
+});
 //
 // /* Delete user */
 // router.delete('/:id', (req, res) => {
