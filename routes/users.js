@@ -25,26 +25,25 @@ router.get('/', (req, res) => {
 });
 
 /* GET user by ID */
-// router.get('/*', (req, res) => {
-//   console.log('from users.js, this is req: ', req);
-//
-//   db.user.find({
-//     where: { firstName: "Marita" }
-//     attributes: {
-//       exclude: ['password'],
-//     }
-//   })
-//   .then((user) => {
-//     if(user) {
-//       res.status(200).json(user);
-//     } else {
-//       res.json({"message": "no user found!"});
-//     }
-//   })
-//   .catch(function(err) {
-//     res.json(err);
-//   });
-//
+router.get('/*', (req, res) => {
+  db.user.find({
+    where: { id: req.path.replace(/[^-a-z0-9]+/g, "") }
+    attributes: {
+      exclude: ['password'],
+    }
+  })
+  .then((user) => {
+    if(user) {
+      res.status(200).json(user);
+    } else {
+      res.json({"message": "no user found!"});
+    }
+  })
+  .catch(function(err) {
+    res.json(err);
+  });
+});
+
 
   /* Create new user */
   router.post('/', (req, res) => {

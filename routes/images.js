@@ -18,7 +18,6 @@ router.get('/', (req, res) => {
 
 /* GET image by ID */
 router.get('/*', (req, res) => {
-  console.log('req object: ', req);
     db.image.find({
         where: { id: req.path.replace(/[^-a-z0-9]+/g, "") } // hard coded for testing
       })
