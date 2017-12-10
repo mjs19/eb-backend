@@ -22,8 +22,12 @@ router.get('/*', (req, res) => {
     db.image.find({
         where: { id: req.path.replace(/[^-a-z0-9]+/g, "") } // hard coded for testing
       })
-    .then((images) => {
-        res.json(images)
+    .then((image) => {
+      if(image) {
+        res.json(image)
+      } else {
+        res.json({'message': 'no image found!'})
+      }
     })
     .catch(err => res.json(err));
 });
