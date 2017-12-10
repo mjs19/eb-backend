@@ -17,10 +17,10 @@ router.get('/', (req, res) => {
 });
 
 /* GET image by ID */
-router.get('/:id', (req, res) => {
+router.get('/*', (req, res) => {
   console.log('req object: ', req);
     db.image.find({
-        where: { id: 1} // hard coded for testing
+        where: { id: req.path.replace(/[^-a-z0-9]+/g, "") } // hard coded for testing
       })
     .then((images) => {
         res.json(images)
