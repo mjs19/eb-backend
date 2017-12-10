@@ -16,16 +16,17 @@ router.get('/', (req, res) => {
     .catch(err => res.json(err));
 });
 
-// /* GET image by ID */
-// router.get('/:id', (req, res) => {
-//     db.image.find({
-//         where: { id: req.params.id }
-//       })
-//     .then((images) => {
-//         res.json(images)
-//     })
-//     .catch(err => res.json(err));
-// });
+/* GET image by ID */
+router.get('/:id', (req, res) => {
+  console.log('req object: ', req);
+    db.image.find({
+        where: { id: 1} // hard coded for testing
+      })
+    .then((images) => {
+        res.json(images)
+    })
+    .catch(err => res.json(err));
+});
 //
 // /* POST image */
 // router.post('/', (req, res) => {
