@@ -26,7 +26,8 @@ router.get('/', (req, res) => {
 /* GET user by ID */
 router.get('/*', (req, res) => {
   db.user.find({
-    where: { id: req.path.replace(/[^-a-z0-9]+/g, "") },
+    console.log('from users.js, this is req: ', req);
+    where: { id: 1 },
     attributes: {
       exclude: ['password'],
     }
@@ -42,7 +43,7 @@ router.get('/*', (req, res) => {
     res.json(err);
   });
 
-//
+
   /* Create new user */
   router.post('/', (req, res) => {
     db.user.find({
