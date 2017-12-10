@@ -20,23 +20,20 @@ router.get('/', (req, res) => {
   });
 
 });
-//
-// /* GET user by ID */
-// router.get('/:id', (req, res) => {
-//   db.user.find({
-//     where: { id: req.params.id },
-//     attributes: {
-//       exclude: ['password'],
-//     }
-//   })
-//   .then((users) => {
-//     res.status(200).json(users);
-//   })
-//   .catch(function(err) {
-//     res.json(err);
-//   });
 
-//
+/* GET user by ID */
+router.get('/:id', (req, res) => {
+  db.user.find({
+    where: { id: req.params.id }
+  })
+  .then((users) => {
+    res.status(200).json(users);
+  })
+  .catch(function(err) {
+    res.json(err);
+  });
+
+
   /* Create new user */
   router.post('/', (req, res) => {
     db.user.find({

@@ -73,6 +73,12 @@ router.post('/', (req, res) => {
         createdAt: new Date(),
         updatedAt: new Date()
     })
+    .then(newGIF => {
+      res.json({"message": "success!", "gif created": newGIF})
+    })
+    .catch(err => {
+      res.json(err);
+    });
 })
 
 
