@@ -3,7 +3,7 @@ var router = express.Router();
 const db = require('../models');
 
 router.post('/', (req, res) => {
-    db.user.find({
+    db.user.findOne({
         where: {
             email: req.body.email
         }

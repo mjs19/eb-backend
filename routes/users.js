@@ -39,7 +39,7 @@ router.get('/', (req, res) => {
 //
   /* Create new user */
   router.post('/', (req, res) => {
-    db.user.find({
+    db.user.findOne({
       where: {
         email: req.body.email
       }
