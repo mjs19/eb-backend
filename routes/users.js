@@ -40,7 +40,8 @@ router.get('/*', (req, res) => {
     }
   })
   .catch(function(err) {
-    res.json(err);
+    console.log(err);
+    res.json({"message": "no user found!"});
   });
 
 });
