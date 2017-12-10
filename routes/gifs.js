@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 const db = require('../models');
 const apiKey = 'f6dNA2KM5qhAQC5jg1yxOgkNx0UMCvYT';
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 /* GET routes for all gifs & by emotion */
 router.get('/', (req, res) => {
