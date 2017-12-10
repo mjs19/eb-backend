@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
 /* GET user by ID */
 router.get('/*', (req, res) => {
   db.user.find({
-    where: { id: req.path.replace(/[^-a-z0-9]+/g, "") }
+    where: { id: req.path.replace(/[^-a-z0-9]+/g, "") },
     attributes: {
       exclude: ['password'],
     }
@@ -42,6 +42,7 @@ router.get('/*', (req, res) => {
   .catch(function(err) {
     res.json(err);
   });
+
 });
 
 
@@ -72,7 +73,7 @@ router.get('/*', (req, res) => {
     .catch(err => {
       res.json(err);
     })
-  })
+  });
 
 //   /* Update user */
 //   router.put('/:id', (req, res) => {
