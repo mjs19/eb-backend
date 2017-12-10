@@ -8,10 +8,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      first_name: {
+      firstName: {
         type: Sequelize.STRING
       },
-      last_name: {
+      lastName: {
         type: Sequelize.STRING
       },
       email: {
@@ -28,9 +28,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    },
-    underscored: true
-  );
+    });
   },
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('users');

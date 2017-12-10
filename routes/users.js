@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
 //   console.log('from users.js, this is req: ', req);
 //
 //   db.user.find({
-//     where: { first_name: "Marita" }
+//     where: { firstName: "Marita" }
 //     attributes: {
 //       exclude: ['password'],
 //     }
@@ -58,8 +58,8 @@ router.get('/', (req, res) => {
         res.json({ 'message': 'user already exists' })
       } else {
         db.user.create({
-          first_name: req.body.first,
-          last_name: req.body.last,
+          firstName: req.body.first,
+          lastName: req.body.last,
           email: req.body.email,
           password: req.body.password,
           createdAt: new Date(),
@@ -84,8 +84,8 @@ router.get('/', (req, res) => {
 //     })
 //     .then((user) => {
 //       user.update({
-//         first_name: req.body.first,
-//         last_name: req.body.last,
+//         firstName: req.body.first,
+//         lastName: req.body.last,
 //         password: req.body.password,
 //         updatedAt: new Date()
 //       })
