@@ -33,6 +33,11 @@ router.get('/*', (req, res) => {
 
 // /* POST image */
 router.post('/', (req, res) => {
+  console.log('~~~~~~~~~~~~~REQ BODY IMAGE: ', req.body.image);
+
+  if(req.body.image.contains('base64,')){
+    console.log("base64");
+  } else {
     // post file to imgur to generate url
     request({
         url: 'https://api.imgur.com/3/image',
@@ -75,6 +80,8 @@ router.post('/', (req, res) => {
             .catch(logError);
         }
     })
+  }
+
 });
 
 // /* DELETE an image */
