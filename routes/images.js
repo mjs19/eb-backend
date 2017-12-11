@@ -77,10 +77,10 @@ router.post('/', (req, res) => {
   //         .catch(logError);
   //     }
   //   })
-  console.log('~~~~~~REQ BODY IMAGE~~~~~~ ', req.body.image);
+  console.log('~~~~~~REQ BODY ~~~~~~ ', req.body);
   var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`;
   var xhr = new XMLHttpRequest();
-  var fd = new FormData();
+  var fd = req.body;
   xhr.open('POST', url, true);
   xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
   xhr.onreadystatechange = function(e) {
@@ -115,8 +115,8 @@ router.post('/', (req, res) => {
     // })
     // .catch(logError);
   }
-  fd.append('upload_preset', unsignedUploadPreset);
-  fd.append('file', req.body.image); // going to send it as file:// format
+  // fd.append('upload_preset', unsignedUploadPreset);
+  // fd.append('file', req.body.image); // going to send it as file:// format
   xhr.send(fd);
 };
 });
