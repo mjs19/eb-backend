@@ -12,6 +12,8 @@ var FormData = require('form-data');
 var FileAPI = require('file-api')
 var File = FileAPI.File;
 
+var rp = require('request-promise');
+
 /* GET all images */
 router.get('/', (req, res) => {
     db.image.findAll()
@@ -38,6 +40,34 @@ router.get('/*', (req, res) => {
 
 // /* POST image */
 router.post('/', (req, res) => {
+  // REQUEST PROMISE way
+    var file = new File({
+      name: 'test.jpg',//req.body.image.slice(21),
+      path: req.body.image,
+      type: "image/jpeg",
+      lastModified: new Date()
+    });
+  var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`;
+  var options = {
+    method: 'POST',
+    uri: url,
+    body: {
+        file: file,
+        upload_preset: unsignedUploadPreset
+    },
+    json: true // Automatically stringifies the body to JSON
+};
+
+rp(options)
+    .then(function (parsedBody) {
+        // POST succeeded...
+    })
+    .catch(function (err) {
+        // POST failed...
+    });
+
+
+  // ths is IMGUR STUFF
   // post file to imgur to generate url
   // request({
   //     url: 'https://api.imgur.com/3/image',
@@ -81,20 +111,20 @@ router.post('/', (req, res) => {
   //     }
   //   })
 
-  // CLOUD STUFS
-  console.log('~~~~~~HI THIS IS REQ BODY IMAGE~~~~~~ ', req.body.image);
-  var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`;
-  var xhr = new XMLHttpRequest();
-  var fd = new FormData();
-  xhr.open('POST', url, true);
-  xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+  // // CLOUD STUFS
+  // console.log('~~~~~~HI THIS IS REQ BODY IMAGE~~~~~~ ', req.body.image);
+  // var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`;
+  // var xhr = new XMLHttpRequest();
+  // var fd = new FormData();
+  // xhr.open('POST', url, true);
+  // xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 
-  xhr.onreadystatechange = function(e) {
-  if (xhr.readyState == 4 && xhr.status == 200) {
-    // File uploaded successfully
-    var response = JSON.parse(xhr.responseText);
-    var imageUrl = response.secure_url;
-    console.log("~~~~~~UPLOAD URL~~~~~~ ", imageUrl);
+  // xhr.onreadystatechange = function(e) {
+  // if (xhr.readyState == 4 && xhr.status == 200) {
+  //   // File uploaded successfully
+  //   var response = JSON.parse(xhr.responseText);
+  //   var imageUrl = response.secure_url;
+  //   console.log("~~~~~~UPLOAD URL~~~~~~ ", imageUrl);
     // // THIS IS DB STUFF
     // var response = function(res) { console.log(res); }
     // var logError = function(err) { console.log(err); }
@@ -121,19 +151,19 @@ router.post('/', (req, res) => {
     //     });
     // })
     // .catch(logError);
-  }
-};
-  fd.append('upload_preset', unsignedUploadPreset);
-  fd.append('tags', 'browser_upload'); // Optional - add tag for image admin in Cloudinary
-  var file = new File({
-    name: 'test.jpg',//req.body.image.slice(21),
-    path: req.body.image,
-    type: "image/jpeg",
-    lastModified: new Date()
-  });
-  fd.append('file', JSON.stringify(file)); // going to send it as file:// format
-  xhr.send(fd);
-});
+//   }
+// };
+//   fd.append('upload_preset', unsignedUploadPreset);
+//   fd.append('tags', 'browser_upload'); // Optional - add tag for image admin in Cloudinary
+//   var file = new File({
+//     name: 'test.jpg',//req.body.image.slice(21),
+//     path: req.body.image,
+//     type: "image/jpeg",
+//     lastModified: new Date()
+//   });
+//   fd.append('file', JSON.stringify(file)); // going to send it as file:// format
+//   xhr.send(fd);
+// });
 
 // /* DELETE an image */
 // router.delete('/:id', (req, res) => {
