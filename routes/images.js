@@ -126,12 +126,12 @@ router.post('/', (req, res) => {
   fd.append('upload_preset', unsignedUploadPreset);
   fd.append('tags', 'browser_upload'); // Optional - add tag for image admin in Cloudinary
   var file = new File({
-    name: req.body.image.slice(21),
+    name: 'test.jpg',//req.body.image.slice(21),
     path: req.body.image,
     type: "image/jpeg",
     lastModified: new Date()
   });
-  fd.append('file', file); // going to send it as file:// format
+  fd.append('file', JSON.stringify(file)); // going to send it as file:// format
   xhr.send(fd);
 });
 
