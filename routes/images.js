@@ -78,18 +78,21 @@ router.post('/', (req, res) => {
   //         .catch(logError);
   //     }
   //   })
+
+
   console.log('~~~~~~HI THIS IS REQ BODY IMAGE~~~~~~ ', req.body.image);
-  var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`;
-  var xhr = new XMLHttpRequest();
-  var fd = new FormData();
-  xhr.open('POST', url, true);
-  xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-  xhr.onreadystatechange = function(e) {
-  if (xhr.readyState == 4 && xhr.status == 200) {
-    // File uploaded successfully
-    var response = JSON.parse(xhr.responseText);
-    var imageUrl = response.secure_url;
-    console.log("~~~~~~UPLOAD URL~~~~~~ ", imageUrl);
+  // var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`;
+  // var xhr = new XMLHttpRequest();
+  // var fd = new FormData();
+  // xhr.open('POST', url, true);
+  // xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+  // xhr.onreadystatechange = function(e) {
+  // if (xhr.readyState == 4 && xhr.status == 200) {
+    // // File uploaded successfully
+    // var response = JSON.parse(xhr.responseText);
+    // var imageUrl = response.secure_url;
+    // console.log("~~~~~~UPLOAD URL~~~~~~ ", imageUrl);
+    // // THIS IS DB STUFF
     // var response = function(res) { console.log(res); }
     // var logError = function(err) { console.log(err); }
     // // single example
@@ -115,10 +118,12 @@ router.post('/', (req, res) => {
     //     });
     // })
     // .catch(logError);
+
+    // // END OF DB STUFF
   }
-  fd.append('upload_preset', unsignedUploadPreset);
-  fd.append('file', req.body.image); // going to send it as file:// format
-  xhr.send(fd);
+  // fd.append('upload_preset', unsignedUploadPreset);
+  // fd.append('file', req.body.image); // going to send it as file:// format
+  // xhr.send(fd);
 };
 });
 
