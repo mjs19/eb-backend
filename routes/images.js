@@ -3,6 +3,7 @@ var router = express.Router();
 const db = require('../models');
 var request = require('request');
 var indico = require('indico.io');
+var XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 indico.apiKey =  '7a00385289015143942a0b624681cd19';
 const clientId = '8945a218b217c4f';
 const cloudName = 'emotionalbreakdown';
