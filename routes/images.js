@@ -34,54 +34,48 @@ router.get('/*', (req, res) => {
 // /* POST image */
 router.post('/', (req, res) => {
   console.log('~~~~~~~~~~~~~REQ BODY IMAGE: ', req.body.image);
-
-  if(req.body.image.contains('base64,')){
-    console.log("base64");
-  } else {
-    // post file to imgur to generate url
-    request({
-        url: 'https://api.imgur.com/3/image',
-        method: 'POST',
-        json: true,
-        headers: {
-            'authorization': `Client-ID ${clientId}`,
-            'content-type': 'application/json'
-        },
-        body: { image: req.body.image } // image must be a binary file, base64 data, or a URL
-    }, function(error, response, body){
-        if(error) {
-            res.json(error);
-        } else {
-            var imageUrl = response.body.data.link;
-            var response = function(res) { console.log(res); }
-            var logError = function(err) { console.log(err); }
-            // single example
-            indico.fer(imageUrl)
-            .then(response => {
-                db.image.create({
-                    url: imageUrl,
-                    fave: false,
-                    neutral: response.Neutral,
-                    happy: response.Happy,
-                    sad: response.Sad,
-                    surprised: response.Surprise,
-                    fearful: response.Fear,
-                    angry: response.Angry,
-                    createdAt: new Date(),
-                    updatedAt: new Date()
-                })
-                .then(newImage => {
-                    res.json({
-                        'message': 'image created!!',
-                        'image': newImage
-                    });
-                });
-            })
-            .catch(logError);
-        }
+  // post file to imgur to generate url
+  request({
+      url: 'https://api.imgur.com/3/image',
+      method: 'POST',
+      json: true,
+      headers: {
+          'authorization': `Client-ID ${clientId}`,
+          'content-type': 'application/json'
+      },
+      body: { image: req.body.image } // image must be a binary file, base64 data, or a URL
+  }, function(error, response, body){
+      if(error) {
+          res.json(error);
+      } else {
+          var imageUrl = response.body.data.link;
+          var response = function(res) { console.log(res); }
+          var logError = function(err) { console.log(err); }
+          // single example
+          indico.fer(imageUrl)
+          .then(response => {
+              db.image.create({
+                  url: imageUrl,
+                  fave: false,
+                  neutral: response.Neutral,
+                  happy: response.Happy,
+                  sad: response.Sad,
+                  surprised: response.Surprise,
+                  fearful: response.Fear,
+                  angry: response.Angry,
+                  createdAt: new Date(),
+                  updatedAt: new Date()
+              })
+              .then(newImage => {
+                  res.json({
+                      'message': 'image created!!',
+                      'image': newImage
+                  });
+              });
+          })
+          .catch(logError);
+      }
     })
-  }
-
 });
 
 // /* DELETE an image */
