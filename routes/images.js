@@ -43,7 +43,6 @@ router.get('/*', (req, res) => {
 // /* POST image */
 router.post('/', upload.single('photo'), (req, res) => {
   console.log('~~~~~~~~~~~~~REQ FILE~~~~~~~~~~~~~: ', req.file);
-  const post = new Post(req.file);
 //   cloudinary.uploader.upload(req.body.image,{tags:'test'}, function(err,image){
 //   console.log("** File Upload");
 //   if (err){ console.log(err);}
@@ -62,7 +61,7 @@ router.post('/', upload.single('photo'), (req, res) => {
           'authorization': `Client-ID ${clientId}`,
           'content-type': 'application/json'
       },
-      body: { image: post } // image must be a binary file, base64 data, or a URL
+      body: { image: req.file } // image must be a binary file, base64 data, or a URL
   }, function(error, response, body){
       if(error) {
           res.json(error);
