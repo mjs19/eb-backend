@@ -61,7 +61,7 @@ router.post('/', upload.single('photo'), (req, res) => {
           'authorization': `Client-ID ${clientId}`,
           'content-type': 'application/json'
       },
-      body: { image: req.file } // image must be a binary file, base64 data, or a URL
+      body: { image: 'https://uproxx.files.wordpress.com/2013/04/star_trek_final_trailer_tests_kirk.jpg' } // image must be a binary file, base64 data, or a URL
   }, function(error, response, body){
       if(error) {
           res.json(error);
