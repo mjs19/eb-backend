@@ -61,9 +61,11 @@ router.post('/', (req, res) => {
 rp(options)
     .then(function (parsedBody) {
         // POST succeeded...
+        console.log("!~~~~~~THIS IS THE RP RESPONSE~~~~~~! ", parsedBody)
     })
     .catch(function (err) {
         // POST failed...
+        console.log(err);
     });
 
 
