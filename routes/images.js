@@ -78,7 +78,7 @@ router.post('/', (req, res) => {
   //         .catch(logError);
   //     }
   //   })
-  console.log('~~~~~~REQ BODY IMAGE~~~~~~ ', req.body.image);
+  console.log('~~~~~~HI THIS IS REQ BODY IMAGE~~~~~~ ', req.body.image);
   var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`;
   var xhr = new XMLHttpRequest();
   var fd = new FormData();
