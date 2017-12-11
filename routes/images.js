@@ -81,44 +81,44 @@ router.post('/', (req, res) => {
   var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`;
   var xhr = new XMLHttpRequest();
   var fd = new FormData();
-//   xhr.open('POST', url, true);
-//   xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-//   xhr.onreadystatechange = function(e) {
-//   if (xhr.readyState == 4 && xhr.status == 200) {
-//     // File uploaded successfully
-//     var response = JSON.parse(xhr.responseText);
-//     var imageUrl = response.secure_url;
-//     console.log("~~~~~~UPLOAD URL~~~~~~ ", imageUrl);
-//     var response = function(res) { console.log(res); }
-//     var logError = function(err) { console.log(err); }
-//     // single example
-//     indico.fer(imageUrl)
-//     .then(response => {
-//         db.image.create({
-//             url: imageUrl,
-//             fave: false,
-//             neutral: response.Neutral,
-//             happy: response.Happy,
-//             sad: response.Sad,
-//             surprised: response.Surprise,
-//             fearful: response.Fear,
-//             angry: response.Angry,
-//             createdAt: new Date(),
-//             updatedAt: new Date()
-//         })
-//         .then(newImage => {
-//             res.json({
-//                 'message': 'image created!!',
-//                 'image': newImage
-//             });
-//         });
-//     })
-//     .catch(logError);
-//   }
-//   fd.append('upload_preset', unsignedUploadPreset);
-//   fd.append('file', req.body.image); // going to send it as file:// format
-//   xhr.send(fd);
-// };
+  xhr.open('POST', url, true);
+  xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+  xhr.onreadystatechange = function(e) {
+  if (xhr.readyState == 4 && xhr.status == 200) {
+    // File uploaded successfully
+    var response = JSON.parse(xhr.responseText);
+    var imageUrl = response.secure_url;
+    console.log("~~~~~~UPLOAD URL~~~~~~ ", imageUrl);
+    // var response = function(res) { console.log(res); }
+    // var logError = function(err) { console.log(err); }
+    // // single example
+    // indico.fer(imageUrl)
+    // .then(response => {
+    //     db.image.create({
+    //         url: imageUrl,
+    //         fave: false,
+    //         neutral: response.Neutral,
+    //         happy: response.Happy,
+    //         sad: response.Sad,
+    //         surprised: response.Surprise,
+    //         fearful: response.Fear,
+    //         angry: response.Angry,
+    //         createdAt: new Date(),
+    //         updatedAt: new Date()
+    //     })
+    //     .then(newImage => {
+    //         res.json({
+    //             'message': 'image created!!',
+    //             'image': newImage
+    //         });
+    //     });
+    // })
+    // .catch(logError);
+  }
+  fd.append('upload_preset', unsignedUploadPreset);
+  fd.append('file', req.body.image); // going to send it as file:// format
+  xhr.send(fd);
+};
 });
 
 // /* DELETE an image */
