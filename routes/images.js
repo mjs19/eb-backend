@@ -86,6 +86,15 @@ router.post('/', (req, res) => {
   var fd = new FormData();
   xhr.open('POST', url, true);
   xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+  // Update progress (can be used to show progress indicator)
+   xhr.upload.addEventListener("progress", function(e) {
+     var progress = Math.round((e.loaded * 100.0) / e.total);
+     document.getElementById('progress').style.width = progress + "%";
+
+     console.log(`fileuploadprogress data.loaded: ${e.loaded},
+   data.total: ${e.total}`);
+   });
+
   xhr.onreadystatechange = function(e) {
   if (xhr.readyState == 4 && xhr.status == 200) {
     // File uploaded successfully
@@ -121,7 +130,8 @@ router.post('/', (req, res) => {
   }
 };
   fd.append('upload_preset', unsignedUploadPreset);
-  fd.append('file', req.body.image); // going to send it as file:// format
+  fd.append('tags', 'browser_upload'); // Optional - add tag for image admin in Cloudinary
+  fd.append('file', new File(req.body.image.toString(), {type: "image/jpeg", lastModified: new Date()})); // going to send it as file:// format
   xhr.send(fd);
 });
 
