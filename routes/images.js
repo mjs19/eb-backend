@@ -6,11 +6,7 @@ var indico = require('indico.io');
 var XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 indico.apiKey =  '7a00385289015143942a0b624681cd19';
 const clientId = '8945a218b217c4f';
-const cloudName = 'emotionalbreakdown';
-const unsignedUploadPreset = 'atg4ausd';
-var FormData = require('form-data');
-var FileAPI = require('file-api')
-var File = FileAPI.File;
+
 
 var rp = require('request-promise');
 
@@ -49,7 +45,7 @@ router.post('/', (req, res) => {
           'authorization': `Client-ID ${clientId}`,
           'content-type': 'application/json'
       },
-      body: { image: req.body.image } // image must be a binary file, base64 data, or a URL
+      body: { image: req.body.imageUrl } // image must be a binary file, base64 data, or a URL
   }, function(error, response, body){
       if(error) {
           res.json(error);
@@ -82,8 +78,6 @@ router.post('/', (req, res) => {
           .catch(logError);
       }
     })
-
-
 });
 
 // /* DELETE an image */
