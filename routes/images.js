@@ -8,7 +8,7 @@ indico.apiKey =  '7a00385289015143942a0b624681cd19';
 const clientId = '8945a218b217c4f';
 const cloudName = 'emotionalbreakdown';
 const unsignedUploadPreset = 'atg4ausd';
-var FormData = require('form-data');
+// var FormData = require('form-data');
 
 /* GET all images */
 router.get('/', (req, res) => {
@@ -83,7 +83,7 @@ router.post('/', (req, res) => {
   console.log('~~~~~~HI THIS IS REQ BODY IMAGE~~~~~~ ', req.body.image);
   var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`;
   var xhr = new XMLHttpRequest();
-  var fd = new FormData();
+  // var fd = new FormData();
   xhr.open('POST', url, true);
   xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
   xhr.onreadystatechange = function(e) {
@@ -120,9 +120,9 @@ router.post('/', (req, res) => {
     // .catch(logError);
   }
 };
-  fd.append('upload_preset', unsignedUploadPreset);
-  fd.append('file', req.body.image); // going to send it as file:// format
-  xhr.send(fd);
+  // fd.append('upload_preset', unsignedUploadPreset);
+  // fd.append('file', req.body.image); // going to send it as file:// format
+  // xhr.send(fd);
 });
 
 // /* DELETE an image */
