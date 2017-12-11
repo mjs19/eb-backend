@@ -61,7 +61,7 @@ router.post('/', (req, res) => {
           'authorization': `Client-ID ${clientId}`,
           'content-type': 'application/json'
       },
-      body: { image: req.file } // image must be a binary file, base64 data, or a URL
+      body: { image: req.body.image } // image must be a binary file, base64 data, or a URL
   }, function(error, response, body){
       if(error) {
           res.json(error);
