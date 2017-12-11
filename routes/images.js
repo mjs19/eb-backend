@@ -42,7 +42,7 @@ router.get('/*', (req, res) => {
 
 // /* POST image */
 router.post('/', (req, res) => {
-  console.log('~~~~~~~~~~~~~REQ~~~~~~~~~~~~~: ', req.body.image);
+  console.log('~~~~~~~~~~~~~REQ~~~~~~~~~~~~~: ', req);
 //   cloudinary.uploader.upload(req.body.image,{tags:'test'}, function(err,image){
 //   console.log("** File Upload");
 //   if (err){ console.log(err);}
