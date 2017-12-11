@@ -30,5 +30,4 @@ app.use('/login', login);
 app.use('/images', images);
 app.use('/gifs', gifs);
 
-
 module.exports = app;
