@@ -78,9 +78,9 @@ router.post('/', (req, res) => {
   //     }
   //   })
   console.log('~~~~~~REQ BODY IMAGE~~~~~~ ', req.body.image);
-//   var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`;
-//   var xhr = new XMLHttpRequest();
-//   var fd = new FormData();
+  var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`;
+  var xhr = new XMLHttpRequest();
+  var fd = new FormData();
 //   xhr.open('POST', url, true);
 //   xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 //   xhr.onreadystatechange = function(e) {
