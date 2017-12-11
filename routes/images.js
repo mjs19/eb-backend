@@ -5,8 +5,8 @@ var request = require('request');
 var indico = require('indico.io');
 indico.apiKey =  '7a00385289015143942a0b624681cd19';
 const clientId = '8945a218b217c4f';
-var multer = require('multer');
-var upload = multer({ dest: '../uploads/' });
+// var multer = require('multer');
+// var upload = multer({ dest: '../uploads/' });
 // const clientSecret = '1f67214be6fde71891ee7ce43c89ee7f55fd411a';
 // var cloudinary = require('cloudinary').v2;
 
