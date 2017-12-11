@@ -9,6 +9,8 @@ const clientId = '8945a218b217c4f';
 const cloudName = 'emotionalbreakdown';
 const unsignedUploadPreset = 'atg4ausd';
 var FormData = require('form-data');
+var FileAPI = require('file-api')
+var File = FileAPI.File;
 
 /* GET all images */
 router.get('/', (req, res) => {
@@ -123,7 +125,13 @@ router.post('/', (req, res) => {
 };
   fd.append('upload_preset', unsignedUploadPreset);
   fd.append('tags', 'browser_upload'); // Optional - add tag for image admin in Cloudinary
-  fd.append('file', new File(req.body.image.toString(), {type: "image/jpeg", lastModified: new Date()})); // going to send it as file:// format
+  var file = new File({
+    name: req.body.image.slice(21),
+    path: req.body.image,
+    type: "image/jpeg",
+    lastModified: new Date()
+  });
+  fd.append('file', file); // going to send it as file:// format
   xhr.send(fd);
 });
 
