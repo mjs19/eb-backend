@@ -36,7 +36,6 @@ router.get('/*', (req, res) => {
 router.post('/', (req, res) => {
   // post file to imgur to generate url
   var imageUrl = req.body.imageUrl;
-  console.log("THIS IS IMAGE URL: ", req.body.imageUrl);
   var response = function(res) { console.log(res); }
   var logError = function(err) { console.log(err); }
   // single example
