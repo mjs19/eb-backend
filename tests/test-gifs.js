@@ -6,15 +6,16 @@ api = supertest('https://emotional-breakdown.herokuapp.com');
 // note: some api calls already blocked on Capital One computers but works just
 // fine on my personal laptop
 
-describe('GET users', (done) => {
+describe('GET gifs', (done) => {
     it('should return a 200 status', () => {
-      api.get('/users')
+      api.get('/gifs')
         .set('Accept', 'application/json')
         .expect(200, done);
     });
 
-    it('should return all users', (done) => {
-        api.get('/users')
+
+    it('should return all gifs', (done) => {
+        api.get('/gifs')
           .set('Accept', 'application/json')
           .end(function(error, response) {
               if(error) { console.log(error); }
@@ -24,22 +25,19 @@ describe('GET users', (done) => {
       })
   });
 
-  describe('GET user by :id', (done) => {
+  describe('GET gif by emotion', (done) => {
     it('should return a 200 status', () => {
-      api.get('/users/1')
+      api.get('/gifs/angry')
         .set('Accept', 'application/json')
         .expect(200, done);
     })
-    it('should return a user with correct fields ', (done) => {
-        api.get('/users/1')
+    it('should return a gif with correct fields ', (done) => {
+        api.get('/gifs/angry')
           .set('Accept', 'application/json')
           .end(function(error, response) {
               if(error) { console.log(error); }
-              console.log(response.body);
-              expect(response.body.firstName).to.be.a('string');
-              expect(response.body.lastName).to.be.a('string');
-              expect(response.body.email).to.be.a('string');
-              expect(response.body.images).to.be.an('array');
+              expect(response.body.emotion).to.be.a('string');
+              expect(response.body.url).to.be.a('string');
             done();
           });
       })
