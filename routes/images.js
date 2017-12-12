@@ -10,7 +10,11 @@ var rp = require('request-promise');
 
 /* GET all images */
 router.get('/', (req, res) => {
-    db.image.findAll()
+    db.image.findAll({
+      include: [{
+        model: db.user
+      }]
+    })
     .then((images) => {
         res.json(images)
     })
@@ -36,12 +40,14 @@ router.get('/*', (req, res) => {
 router.post('/', (req, res) => {
   // post file to imgur to generate url
   var imageUrl = req.body.imageUrl;
+  var user = req.body.user;
   // var response = function(res) { console.log(res); }
   // var logError = function(err) { console.log(err); }
   // single example
   indico.fer(imageUrl)
   .then(response => {
     db.image.create({
+      userId: user,
       url: imageUrl,
       fave: false,
       neutral: response.Neutral,

@@ -10,10 +10,7 @@ router.get('/', (req, res) => {
   db.user.findAll({
     include: [{
       model: db.image
-    }],
-    attributes: {
-      exclude: ['password'],
-    }
+    }]
   })
   .then((users) => {
     res.status(200).json(users);
@@ -28,9 +25,9 @@ router.get('/', (req, res) => {
 router.get('/*', (req, res) => {
   db.user.find({
     where: { id: req.path.replace(/[^-a-z0-9]+/g, "") },
-    attributes: {
-      exclude: ['password'],
-    }
+    include: [{
+      model: db.image
+    }]
   })
   .then((user) => {
     if(user) {

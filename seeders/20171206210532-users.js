@@ -17,7 +17,6 @@ module.exports = {
         firstName: "Marita",
         lastName: "Sailor ",
         email: "marita.sailor@capitalone.com",
-        password: "test",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -25,7 +24,6 @@ module.exports = {
         firstName: "Sahana",
         lastName: "Arya ",
         email: "sahana.arya@capitalone.com",
-        password: "test",
         createdAt: new Date(),
         updatedAt: new Date(),
       }
