@@ -40,7 +40,7 @@ router.get('/*', (req, res) => {
 router.post('/', (req, res) => {
   // post file to imgur to generate url
   var imageUrl = req.body.imageUrl;
-  var user = req.body.user
+  var user = req.body.user;
   // var response = function(res) { console.log(res); }
   // var logError = function(err) { console.log(err); }
   // single example
