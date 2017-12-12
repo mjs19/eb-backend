@@ -67,7 +67,7 @@ router.get('/*', (req, res) => {
           updatedAt: new Date()
         })
         .then((result) => {
-          res.json({ 'message': 'user created!', 'user': result })
+          res.json(result);
         })
       }
     })
