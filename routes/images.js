@@ -10,7 +10,11 @@ var rp = require('request-promise');
 
 /* GET all images */
 router.get('/', (req, res) => {
-    db.image.findAll()
+    db.image.findAll({
+      include: [{
+        model: db.user
+      }]
+    })
     .then((images) => {
         res.json(images)
     })
