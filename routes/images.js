@@ -36,8 +36,8 @@ router.get('/*', (req, res) => {
 router.post('/', (req, res) => {
   // post file to imgur to generate url
   var imageUrl = req.body.imageUrl;
-  var response = function(res) { console.log(res); }
-  var logError = function(err) { console.log(err); }
+  // var response = function(res) { console.log(res); }
+  // var logError = function(err) { console.log(err); }
   // single example
   indico.fer(imageUrl)
   .then(response => {
@@ -57,7 +57,9 @@ router.post('/', (req, res) => {
       res.json(newImage);
     });
   })
-  .catch(logError);
+  .catch(err => {
+    res.status(500).json(err);
+  });
 });
 
 /* DELETE an image */
