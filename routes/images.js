@@ -64,20 +64,20 @@ router.post('/', (req, res) => {
   .catch(logError);
 });
 
-// /* DELETE an image */
-// router.delete('/:id', (req, res) => {
-//     db.image.destroy({
-//       where: {
-//         id: req.params.id
-//       }
-//     })
-//     .then((imageDestroyed) => {
-//       res.status(200).json({'message': 'image deleted', 'image':  imageDestroyed })
-//     })
-//     .catch(err => {
-//       res.json(err)
-//     })
-//   });
-//
-//
+/* DELETE an image */
+router.delete('/:id', (req, res) => {
+    db.image.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    .then((imageDestroyed) => {
+      res.status(200).json({'message': 'image deleted', 'image':  imageDestroyed })
+    })
+    .catch(err => {
+      res.json(err)
+    })
+  });
+
+
 module.exports = router;
