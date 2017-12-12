@@ -56,7 +56,8 @@ router.get('/*', (req, res) => {
     })
     .then((result) => {
       if (result) {
-        res.json({ 'message': 'user already exists' })
+        console.log('user already exists');
+        res.json(result);
       } else {
         db.user.create({
           firstName: req.body.first,
