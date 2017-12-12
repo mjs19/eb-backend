@@ -1,6 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var image = sequelize.define('image', {
+    userId: DataTypes.INTEGER,
     url: DataTypes.STRING,
     fave: DataTypes.BOOLEAN,
     neutral: DataTypes.FLOAT,
@@ -12,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   image.associate = function(models) {
-    image.belongsToMany(models.user, {through:  "userImages"});
+    image.belongsTo(models.user);
   };
 
   return image;

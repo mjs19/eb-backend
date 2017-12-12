@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   user.associate = function(models) {
-    user.belongsToMany(models.image, {through: 'userImages'})
+    user.hasMany(models.image);
   }
 
   return user;
