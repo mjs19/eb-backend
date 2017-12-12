@@ -55,10 +55,7 @@ router.post('/', (req, res) => {
       updatedAt: new Date()
     })
     .then(newImage => {
-      res.json({
-        'message': 'image created!!',
-        'image': newImage
-      });
+      res.json(newImage);
     });
   })
   .catch(logError);
